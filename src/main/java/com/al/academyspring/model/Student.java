@@ -1,5 +1,8 @@
 package com.al.academyspring.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +26,8 @@ public class Student {
     private String firstName;
     private String lastName;
     private String email;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate dateOfBirth;
     private String education;
     @OneToMany(mappedBy = "student", cascade = {CascadeType.DETACH, CascadeType.MERGE,

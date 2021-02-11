@@ -1,5 +1,8 @@
 package com.al.academyspring.DTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +19,10 @@ public class LessonDTO {
     private String courseName;
     private int classroomId;
     private String classroomName;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonFormat(pattern="dd/MM/yyyy hh:mm")
     private LocalDateTime startTime;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonFormat(pattern="dd/MM/yyyy hh:mm")
     private LocalDateTime endTime;
 }

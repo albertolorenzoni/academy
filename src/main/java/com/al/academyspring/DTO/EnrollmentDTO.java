@@ -11,7 +11,7 @@ public class EnrollmentDTO {
 
     private int id;
     private int studentId;
-    private String StudentName;
+    private String studentName;
     private int courseId;
     private String courseName;
     private Integer studentRating;
@@ -20,7 +20,7 @@ public class EnrollmentDTO {
     public EnrollmentDTO(Enrollment e) {
         this.id = e.getId();
         this.studentId = e.getStudent().getId();
-        StudentName = e.getStudent().getFirstName() + " " + e.getStudent().getLastName();
+        this.studentName = e.getStudent().getFirstName() + " " + e.getStudent().getLastName();
         this.courseId = e.getCourse().getId();
         this.courseName = e.getCourse().getName();
         this.studentRating = e.getStudentRating();
